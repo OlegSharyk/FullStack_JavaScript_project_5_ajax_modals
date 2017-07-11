@@ -2,35 +2,26 @@
  * Created by debbieobrien on 10/07/2017.
  */
 let personHTML;
+$.ajax({
+    url: 'https://randomuser.me/api/?results=12',
+    dataType: 'json',
+    success: function(data) {
+        $.each( data.results, function( i, person ) {
+            displayData(person)
+        });
+        let $person = $('.person');
+        //console.log($person);
+        $person.on("click", function(e){
+            e.preventDefault();
+           // displayDataModal(this);
 
-let $overlay = $('<div id="overlay"></div>');
-let $modal = $('<div id="modal"></div>');
-let $image = $('<img>');
-let $name = $('<p>dfdd</p>');
-$overlay.hide();
 
-$overlay.append($modal);
-$modal.append($image);
-$modal.append($name);
-$('#people').after($overlay);
+            $overlay.show();
+        });
 
-let people = document.getElementById('people');
-people.addEventListener("click", function(e){
-    //let name = e.target.getElementsByClassName('name').innerHTML();
-    let image = e.target.src;
-    $image.attr('src', image);
-    $name.text(name);
-    console.log(image);
+    }
 
-    $overlay.show();
 });
-
-$overlay.click(function(){
-    //Hide the modal
-    $overlay.hide();
-});
-
-
 
 function displayData(person){
     personHTML += '<div class="person"><a href="#">';
@@ -54,20 +45,34 @@ function displayDataModal(person){
     personHTML += '<p> BirthDate: ' + person.dob + '</p>';
     personHTML += '<p> address: ' + person.location.street + ', ' + person.location.city + ', ' + person.location.state + ', ' + person.location.postcode + '</p>';
     personHTML += '</div></a>';
-    $('#people').html(personHTML);
+    $('#modal').html(personHTML);
 }
 
+let $overlay = $('<div id="overlay"></div>');
+let $modal = $('<div id="modal"></div>');
+let $image = $('<img>');
+let $name = $('<p>dfdd</p>');
+$overlay.hide();
 
+$overlay.append($modal);
+$modal.append($image);
+$modal.append($name);
+$('#people').after($overlay);
 
-$.ajax({
-    url: 'https://randomuser.me/api/?results=12',
-    dataType: 'json',
-    success: function(data) {
-        $.each( data.results, function( i, person ) {
-            displayData(person)
-        });
-
-    }
-
+$overlay.click(function(){
+    //Hide the modal
+    $overlay.hide();
 });
+
+
+
+
+//let image = $('img');
+//$image.attr('src', image);
+//$name.text(name);
+//console.log($(this).textContent);
+//console.log($(this))
+
+
+
 
