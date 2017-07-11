@@ -5,16 +5,86 @@
     margin: 20px;
 }
 .person{
-    max-width:400px;
-    border:1px solid #ccc;
-    padding:30px;
-    display:flex;
-    flex-direction:column;
+    min-width:355px;
+    border:2px solid #ccc;
+    border-radius: 5px;
+    padding:25px;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
+    align-items: center;
+}
+a:link, a:visited, a.active, a:hover{
+    text-decoration: none;
+}
+.name{
+    color:#999;
+    font-weight:bold;
+    text-transform:capitalize;
+}
+.email, .city{
+    color:#666;
+}
+p{
+    line-height: 10px;
 }
 img{
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
+    display: flex;
+}
+#modal .person{
+    flex-direction:row;
+}
+#modal .img{
+    width: 150px;
+    height:150px;
+}
+#modal{
+    background:rgba(0,0,0,0.7);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:none;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
