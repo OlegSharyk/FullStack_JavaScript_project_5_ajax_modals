@@ -3,39 +3,46 @@
  */
 let personHTML;
 
+let $overlay = $('<div id="overlay"></div>');
 let $modal = $('<div id="modal"></div>');
 let $image = $('<img>');
 let $name = $('<p>dfdd</p>');
+$overlay.hide();
 
+$overlay.append($modal);
 $modal.append($image);
 $modal.append($name);
-$('#people').after($modal);
+$('#people').after($overlay);
 
-$("#people a").click(function(event){
-    event.preventDefault();
-    let imageLocation = $(this).children("img").attr('src');
-    $image.attr("src", imageLocation);
-    $modal.show();
+let people = document.getElementById('people');
+people.addEventListener("click", function(e){
+    //let name = e.target.getElementsByClassName('name').innerHTML();
+    let image = e.target.src;
+    $image.attr('src', image);
+    $name.text(name);
+    console.log(image);
+
+    $overlay.show();
 });
-$modal.click(function(){
+
+$overlay.click(function(){
     //Hide the modal
-    $modal.hide();
+    $overlay.hide();
 });
 
 
 
 function displayData(person){
-    personHTML += '<a href="#"><div class="person">';
+    personHTML += '<div class="person"><a href="#">';
     personHTML += '<img src ="' + person.picture.large + '">';
     personHTML += '<div><span class="name">' + person.name.first;
     personHTML += ' ' + person.name.last + '</span>';
     personHTML += '<p class="email">' + person.email + '</p>';
     personHTML += '<p class="city">' + person.location.city + '</p></div>';
-
-    personHTML += '</div></a>';
+    personHTML += '</a></div>';
     $('#people').html(personHTML);
 }
-function displayDataComplete(person){
+function displayDataModal(person){
     personHTML += '<a href="#"><div class="person">';
     personHTML += '<p><span>Name: ' + person.name.first + ' </span>';
     personHTML += '<span>' + person.name.last + '</span></p>';
