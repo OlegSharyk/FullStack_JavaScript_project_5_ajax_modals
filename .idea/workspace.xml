@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f96d9775-d6ac-4ef5-8c28-a092e4312f4a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styles.css" afterPath="$PROJECT_DIR$/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="572">
+              <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
               </folding>
@@ -43,8 +43,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/js_project_5_API_EmployeePublicDirectory-master/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="180" column="35" lean-forward="true" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="35" />
+            <state relative-caret-position="397">
+              <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -74,6 +74,7 @@
     <findStrings>
       <find>40px</find>
       <find>close</find>
+      <find>nextProfile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -294,12 +295,12 @@
       <updated>1499706645830</updated>
       <workItem from="1499706648060" duration="6002000" />
       <workItem from="1499712799492" duration="111000" />
-      <workItem from="1499754978493" duration="42938000" />
+      <workItem from="1499754978493" duration="45319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49051000" />
+    <option name="totallyTimeSpent" value="51432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="885" y="61" width="1007" height="947" extended-state="0" />
@@ -437,16 +438,16 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/js_project_5_API_EmployeePublicDirectory-master/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="180" column="35" lean-forward="true" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="35" />
+        <state relative-caret-position="397">
+          <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        <state relative-caret-position="572">
+          <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
           </folding>

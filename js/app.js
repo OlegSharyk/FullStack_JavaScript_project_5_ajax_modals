@@ -1,7 +1,7 @@
 /**
  * Created by debbieobrien on 10/07/2017.
  */
-const url = 'https://randomuser.me/api/?results=12';
+const url = 'https://randomuser.me/api/?nat=gb&results=12';
 let personHTML ='';
 let personModalHTML ='';
 
@@ -31,8 +31,6 @@ const getEmployeeData = (data) =>{
         closeModal();
         nextModal();
     });
-
-
 };
 
 $.getJSON(url, getEmployeeData);
