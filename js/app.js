@@ -4,13 +4,14 @@
 const url = 'https://randomuser.me/api/?results=12';
 let personHTML ='';
 let personModalHTML ='';
+let personID;
 let allData = [];
 
 let $overlay = $('<div id="overlay"></div>');
 let $modal = $('<div id="modal"></div>');
 
 const getEmployeeData = (data) =>{
-    //display the data for each employee
+    //get the data for each employee and call the displayData function to display it
     $.each( data.results, function( key, person ) {
         displayData(person);
     });
@@ -19,10 +20,9 @@ const getEmployeeData = (data) =>{
 
     $('.person').on("click", function(e){
         e.preventDefault();
-        // displayDataModal(this);
-        //let selectedPerson = e.target.document.getElementById('id').value;
-        //console.log(selectedPerson)
-        $.each( data.results, function( i, person ) {
+        console.log($(this));
+        //displayDataModal(person)
+        $.each(data.results, function( i, person ) {
             displayDataModal(person)
         });
         $('#modal').html(personModalHTML);
@@ -41,7 +41,7 @@ function displayData(person){
     personHTML += ' ' + person.name.last + '</span>';
     personHTML += '<p class="email">' + person.email + '</p>';
     personHTML += '<p class="city">' + person.location.city + '</p></div>';
-    personHTML += '<span id="id" value="' + person.login.md5 + '"></span>';
+    personHTML += '<span id="id" value="' + person.login.username + '"></span>';
     personHTML += '</a>';
 }
 function displayDataModal(person){
