@@ -4,8 +4,6 @@
 const url = 'https://randomuser.me/api/?results=12';
 let personHTML ='';
 let personModalHTML ='';
-let personID;
-let allData = [];
 
 let $overlay = $('<div id="overlay"></div>');
 let $modal = $('<div id="modal"></div>');
@@ -20,15 +18,20 @@ const getEmployeeData = (data) =>{
 
     $('.person').on("click", function(e){
         e.preventDefault();
-        console.log($(this));
-        //displayDataModal(person)
+        let employeeID = $(this).children('#id').val();
+
         $.each(data.results, function( i, person ) {
-            displayDataModal(person)
+            if(employeeID === person.login.username){
+                displayDataModal(person);
+            }
         });
         $('#modal').html(personModalHTML);
         //show the modal and overlay on click
         $overlay.show();
+        closeModal();
+        nextModal();
     });
+
 
 };
 
@@ -36,26 +39,41 @@ $.getJSON(url, getEmployeeData);
 
 function displayData(person){
     personHTML += '<a href="#" class="person">';
-    personHTML += '<img src ="' + person.picture.large + '">';
+    personHTML += '<img class="avatar" src ="' + person.picture.large + '">';
     personHTML += '<div><span class="name">' + person.name.first;
     personHTML += ' ' + person.name.last + '</span>';
     personHTML += '<p class="email">' + person.email + '</p>';
     personHTML += '<p class="city">' + person.location.city + '</p></div>';
-    personHTML += '<span id="id" value="' + person.login.username + '"></span>';
+    personHTML += '<input type="text" id="id" value="' + person.login.username + '">';
     personHTML += '</a>';
 }
 function displayDataModal(person){
-    personModalHTML += '<a href="#"><div class="person">';
-    personModalHTML += '<p><span>' + person.name.first + ' </span>';
-    personModalHTML += '<span>' + person.name.last + '</span></p>';
+    //Reformat the date of birth
+    function dateOfBirth(){
+        let dob = person.dob;
+        let day = dob.slice(8, -9);
+        let month = dob.slice(5, -12);
+        let year = dob.slice(0, 4);
+        let newDOB = day + '/' + month + '/' + year;
+        return newDOB
+    }
+
+    personModalHTML += '<div class="person-modal">';
+    personModalHTML += '<a href="#" class="close">X</a>';
+    personModalHTML += '<a href="#" class="next">next</a>';
+    personModalHTML += '<a href="#" class="prev">prev</a>';
+    personModalHTML += '<img class="avatar" src ="' + person.picture.large + '">';
+    personModalHTML += '<div class="info">';
+    personModalHTML += '<p><span class="name">' + person.name.first + ' ' + person.name.last + '</span></p>';
     personModalHTML += '<p>' + person.email + '</p>';
-    personModalHTML += '<p> Location: ' + person.location.city + '</p>';
-    personModalHTML += '<img src ="' + person.picture.large + '">';
-    personModalHTML += '<p>' + person.login.username + '</p>';
+    personModalHTML += '<p>' + person.location.city + '</p>';
+    personModalHTML += '</div>';
+    personModalHTML += '<div class="extra-info">';
     personModalHTML += '<p>' + person.cell + '</p>';
-    personModalHTML += '<p>' + person.dob + '</p>';
-    personModalHTML += '<p>' + person.location.street + ', ' + person.location.city + ', ' + person.location.state + ', ' + person.location.postcode + '</p>';
-    personModalHTML += '</div></a>';
+    personModalHTML += '<p>' + person.location.street + ' ' + person.location.city + ', ' + person.location.state + ' ' + person.location.postcode + '</p>';
+    personModalHTML += '<p>Birthday: ' + dateOfBirth() + '</p>';
+    personModalHTML += '</div>';
+    personModalHTML += '</div>';
 }
 
 
@@ -65,49 +83,19 @@ $overlay.hide();
 $overlay.append($modal);
 //append the overlay to the the people div
 $('#people').append($overlay);
+//Hide the modal and overlay if they click again and empty the html so as it clear it
+function closeModal(){
+    $('.close').click(function(e) {
+        e.preventDefault();
+        $overlay.hide();
+        personModalHTML ='';
+    });
+}
+function nextModal(){
+    $('.next').click(function(e) {
+        e.preventDefault();
+        personModalHTML='';
 
-//Hide the modal and overlay if they click again
-$overlay.click(function(){
-    $overlay.hide();
-});
-
-
-
-
-//let image = $('img');
-//$image.attr('src', image);
-//$name.text(name);
-//console.log($(this).textContent);
-//console.log($(this))
-
-
-/*$.ajax({
-    url: 'https://randomuser.me/api/?results=12',
-    dataType: 'json',
-    success: function(data) {
-
-        //console.log(allData[0]);
-        $.each( data.results, function( i, person ) {
-            //allData = data;
-            //allData[person['login']['md5']] = person;
-            //console.log(allData)
-            displayData(person)
-
-        });
-        let $person = $('.person');
-        //console.log($person);
-        $person.on("click", function(e){
-            e.preventDefault();
-            // displayDataModal(this);
-            //let selectedPerson = e.target.document.getElementById('id').value;
-            //console.log(selectedPerson)
-            $.each( data.results, function( i, person ) {
-                displayDataModal(person)
-            });
-            $overlay.show();
-        });
-
-    }
-
-});*/
-
+        console.log('clicked')
+    });
+}
