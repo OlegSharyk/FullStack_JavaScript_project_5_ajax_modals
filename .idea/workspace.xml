@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="f96d9775-d6ac-4ef5-8c28-a092e4312f4a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
     </list>
+=======
+    <list default="true" id="f96d9775-d6ac-4ef5-8c28-a092e4312f4a" name="Default" comment="" />
+>>>>>>> Stashed changes
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -32,10 +36,39 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="382">
               <caret line="30" column="61" lean-forward="true" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+=======
+            <state relative-caret-position="374">
+              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/employee_directory_v1-master/js/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+              <folding>
+                <marker date="1499842400000" expanded="true" signature="359:1337" ph="..." />
+                <marker date="1499842400000" expanded="true" signature="421:514" ph="..." />
+                <marker date="1499842400000" expanded="true" signature="558:1307" ph="..." />
+                <marker date="1499842400000" expanded="false" signature="859:872" ph="..." />
+                <marker date="1499842400000" expanded="false" signature="954:967" ph="..." />
+                <marker date="1499842400000" expanded="false" signature="1042:1055" ph="..." />
+                <marker date="1499842400000" expanded="false" signature="1166:1179" ph="..." />
+                <marker date="1499842400000" expanded="false" signature="1248:1261" ph="..." />
+                <marker date="1499842400000" expanded="true" signature="1670:2816" ph="..." />
+                <marker date="1499842400000" expanded="true" signature="1714:2795" ph="..." />
+                <marker date="1499842400000" expanded="false" signature="1782:1789" ph="×" />
+                <marker date="1499842400000" expanded="true" signature="1855:1944" ph="..." />
+                <marker date="1499842400000" expanded="true" signature="1986:2594" ph="..." />
               </folding>
             </state>
           </provider>
@@ -252,13 +285,21 @@
       <updated>1499706645830</updated>
       <workItem from="1499706648060" duration="6002000" />
       <workItem from="1499712799492" duration="111000" />
+<<<<<<< Updated upstream
       <workItem from="1499754978493" duration="45319000" />
       <workItem from="1499930419690" duration="18226000" />
+=======
+      <workItem from="1499754978493" duration="46457000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="69658000" />
+=======
+    <option name="totallyTimeSpent" value="52570000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="885" y="61" width="1007" height="947" extended-state="0" />
@@ -423,10 +464,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/employee_directory_v1-master/js/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding>
+            <marker date="1499842400000" expanded="true" signature="359:1337" ph="..." />
+            <marker date="1499842400000" expanded="true" signature="421:514" ph="..." />
+            <marker date="1499842400000" expanded="true" signature="558:1307" ph="..." />
+            <marker date="1499842400000" expanded="false" signature="859:872" ph="..." />
+            <marker date="1499842400000" expanded="false" signature="954:967" ph="..." />
+            <marker date="1499842400000" expanded="false" signature="1042:1055" ph="..." />
+            <marker date="1499842400000" expanded="false" signature="1166:1179" ph="..." />
+            <marker date="1499842400000" expanded="false" signature="1248:1261" ph="..." />
+            <marker date="1499842400000" expanded="true" signature="1670:2816" ph="..." />
+            <marker date="1499842400000" expanded="true" signature="1714:2795" ph="..." />
+            <marker date="1499842400000" expanded="false" signature="1782:1789" ph="×" />
+            <marker date="1499842400000" expanded="true" signature="1855:1944" ph="..." />
+            <marker date="1499842400000" expanded="true" signature="1986:2594" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="382">
           <caret line="30" column="61" lean-forward="true" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+=======
+        <state relative-caret-position="374">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#0#49#0" expanded="false" />
           </folding>
