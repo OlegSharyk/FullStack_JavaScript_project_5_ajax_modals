@@ -4,26 +4,40 @@
 const url = 'https://randomuser.me/api/?nat=gb&results=12';
 let personHTML ='';
 let personModalHTML ='';
-
 let $overlay = $('<div id="overlay"></div>');
 let $modal = $('<div id="modal"></div>');
+let employeeList = [];
 
 const getEmployeeData = (data) =>{
     //get the data for each employee and call the displayData function to display it
-    $.each( data.results, function( key, person ) {
-        displayData(person);
+    $.each(data.results, function(key) {
+        employeeList.push($(this));
+        employeeList[key].push({employeeID: key});
     });
-    //append the employees to the people div
+    $.each(employeeList, function (key) {
+        displayData(employeeList[key][0], employeeList[key][1]);
+    });
+
     $('#people').append(personHTML);
 
     $('.person').on("click", function(e){
         e.preventDefault();
         let employeeID = $(this).children('#id').val();
 
-        $.each(data.results, function( i, person ) {
-            if(employeeID === person.login.username){
-                displayDataModal(person);
-            }
+        $.each(employeeList, function( key, person ) {
+            let personID = employeeList[key][1]
+            $.each(personID, function( key, person ) {
+                let personIDValue = personID[key];
+                    if(Number(employeeID) === personIDValue){
+                        //displayDataModal(employeeList);
+                        console.log(personIDValue)
+                        console.log(employeeID)
+                        console.log('ok')
+                        displayDataModal(employeeList[employeeID][0]);
+                    }
+
+
+            })
         });
         $('#modal').html(personModalHTML);
         //show the modal and overlay on click
@@ -33,18 +47,47 @@ const getEmployeeData = (data) =>{
     });
 };
 
-$.getJSON(url, getEmployeeData);
-
-function displayData(person){
+//displayData(employeeList[0]);
+function displayData(person, key){
     personHTML += '<a href="#" class="person">';
+    personHTML += '<input type="hidden" id="id" value="' + key.employeeID + '">';
     personHTML += '<img class="avatar" src ="' + person.picture.large + '">';
     personHTML += '<div><span class="name">' + person.name.first;
     personHTML += ' ' + person.name.last + '</span>';
     personHTML += '<p class="email">' + person.email + '</p>';
     personHTML += '<p class="city">' + person.location.city + '</p></div>';
-    personHTML += '<input type="text" id="id" value="' + person.login.username + '">';
     personHTML += '</a>';
 }
+
+$.getJSON(url, getEmployeeData);
+let filteredList = [];
+$('#submit').click(function(e){
+    e.preventDefault();
+    let searchValue = $('#search').val();
+
+
+    for(let i = 0; i < $('.person').length; i+=1){
+        let firstName = employeeList[i][0].name.first;
+        let secondName = employeeList[i][0].name.last;
+        let fullName = firstName + ' ' + secondName;
+        if(fullName.indexOf(searchValue) > -1 && searchValue){
+            $('.person').show();
+            console.log(fullName);
+            //fullName.parents
+        }
+    }
+    employeeList.forEach(function(element) {
+        let firstName = $(element).find('.person').children('.name').text();
+        if (firstName.indexOf(searchValue) > -1 && searchValue){
+            filteredList.push($(element));
+            console.log(filteredList)
+            }
+
+    })
+
+});
+
+
 function displayDataModal(person){
     //Reformat the date of birth
     function dateOfBirth(){
