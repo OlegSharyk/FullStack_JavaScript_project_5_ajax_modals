@@ -8,6 +8,9 @@ let $overlay = $('<div id="overlay"></div>');
 let $modal = $('<div id="modal"></div>');
 let employeeList = [];  //array to store the data from the api
 let filteredList = [];  //array to store the filtered data from the search
+$('body').append($overlay); //append the overlay to the the people div
+$overlay.append($modal); //append the modal to the overlay
+$overlay.hide(); //hide the modal and overlay
 
 const getEmployeeData = (data) =>{
     //get the data for each employee and call the displayData function to display it
@@ -27,7 +30,7 @@ const loadModal = () => {
         let employeeID = $(this).children('#id').val();
 
         $.each(employeeList, function(key) {
-            let personID = employeeList[key][1];
+            let personID = employeeList[key][1]; //key is stored in second part of object
             $.each(personID, function(key) {
                 let personIDValue = personID[key];
                 employeeID = Number(employeeID);
@@ -96,25 +99,24 @@ function dateOfBirth(person){
     let month = dob.slice(5, -12);
     let year = dob.slice(0, 4);
     let newDOB = day + '/' + month + '/' + year;
-    return newDOB
+    return newDOB;
 }
 
-//displayData(employeeList[0]);
 function displayData(person, key){
-    personHTML += '<a href="#" class="person">';
+    personHTML += '<article class="person">';
     personHTML += '<input type="hidden" id="id" value="' + key.employeeID + '">';
     personHTML += '<img class="avatar" src ="' + person.picture.large + '">';
     personHTML += '<div><span class="name">' + person.name.first;
     personHTML += ' ' + person.name.last + '</span>';
     personHTML += '<p class="email">' + person.email + '</p>';
     personHTML += '<p class="city">' + person.location.city + '</p></div>';
-    personHTML += '</a>';
+    personHTML += '</article>';
 }
 function displayDataModal(person){
     personModalHTML += '<div class="person-modal">';
     personModalHTML += '<a href="#" class="close">X</a>';
-    personModalHTML += '<a href="#" class="next">next</a>';
-    personModalHTML += '<a href="#" class="prev">prev</a>';
+    personModalHTML += '<a href="#" class="next">></a>';
+    personModalHTML += '<a href="#" class="prev"><</a>';
     personModalHTML += '<img class="avatar" src ="' + person.picture.large + '">';
     personModalHTML += '<div class="info">';
     personModalHTML += '<p><span class="name">' + person.name.first + ' ' + person.name.last + '</span></p>';
@@ -130,12 +132,8 @@ function displayDataModal(person){
 }
 
 
-//hide the modal and overlay
-$overlay.hide();
-//append the modal to the overlay
-$overlay.append($modal);
-//append the overlay to the the people div
-$('#people').append($overlay);
+
+
 //Hide the modal and overlay if they click again and empty the html so as it clear it
 function closeModal(){
     $('.close').click(function(e) {
@@ -150,9 +148,11 @@ function nextModal(employeeID){
         employeeID +=1;
         if(employeeID < employeeList.length){
             displayDataModal(employeeList[employeeID][0]);
+            console.log(employeeList[employeeID][0])
         }else{
             employeeID = 0;
         }
+        return employeeID;
     });
 }
 function prevModal(employeeID){
@@ -161,9 +161,11 @@ function prevModal(employeeID){
         employeeID -=1;
         if(employeeID > 0){
             displayDataModal(employeeList[employeeID][0]);
+            console.log(employeeList[employeeID][0])
         }else{
             employeeID = employeeList.length;
         }
+        return employeeID;
     });
 }
 

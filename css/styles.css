@@ -1,38 +1,27 @@
+html{
+    font-family: Gill Sans Extrabold, sans-serif;
+}
+a:link, a:visited, a.active, a:hover{
+    text-decoration: none;
+}
 #people{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around
+    justify-content:space-between;
     margin: 20px;
 }
 .person{
-    min-width:355px;
     border:2px solid #ccc;
     border-radius: 5px;
     padding:20px;
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
     align-items: center;
+    cursor:pointer;
+    flex: 1 400px;
+    margin:5px;
 }
-.person:hover{
-    background-color:#d3d3d3;
-}
-.person-modal{
-    padding:20px;
-    text-align:center;
-}
-.person-modal .info{
-    margin-bottom:30px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-}
-.person-modal .avatar{
-    height:150px;
-    width:150px;
-}
-a:link, a:visited, a.active, a:hover{
-    text-decoration: none;
-}
+
 .name{
     color:#999;
     font-weight:bold;
@@ -48,13 +37,24 @@ img{
     border-radius: 50%;
     margin-right: 20px;
 }
-#id{
-    display:none;
+.person:hover{
+    background-color:#d3d3d3;
 }
-#modal .img{
-    width: 150px;
+.person-modal{
+    padding:20px;
+    text-align:center;
+    position:relative;
+}
+.person-modal .info{
+    margin-bottom:30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.person-modal .avatar{
     height:150px;
+    width:150px;
 }
+
 #overlay{
     background:rgba(0,0,0,0.7);
     width:100%;
@@ -76,15 +76,41 @@ img{
     overflow: auto;
     z-index:9;
 }
+#modal .img{
+    width: 150px;
+    height:150px;
+}
 .close{
-    display: flex;
-    flex-direction: row-reverse;
+    position:absolute;
+    top:10px;
+    right:10px;
+    color:#ccc;
 }
 .next{
-    display: flex;
-    flex-direction: row-reverse;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    color:#ccc;
 }
 .prev{
-    display: flex;
-    flex-direction: row-reverse;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    color:#ccc;
+}
+input{
+    border: 1px solid #ccc;
+}
+@media (max-width: 400px) {
+    #people{
+        margin:0;
+    }
+    .person {
+        flex-direction: column;
+        justify-content: center;
+        flex:1 auto;
+    }
+    .avatar{
+        margin-bottom: 20px;
+    }
 }
