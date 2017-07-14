@@ -1,13 +1,20 @@
 html{
     font-family: Gill Sans Extrabold, sans-serif;
 }
+header{
+    text-align: center;
+}
+.no-results{
+    font-size: 20px;
+    color: #FF4136
+}
 a:link, a:visited, a.active, a:hover{
     text-decoration: none;
 }
 #people{
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content: center;
     margin: 20px;
 }
 .person{
@@ -20,6 +27,7 @@ a:link, a:visited, a.active, a:hover{
     cursor:pointer;
     flex: 1 400px;
     margin:5px;
+    max-width: 400px;
 }
 
 .name{
@@ -80,26 +88,36 @@ img{
     width: 150px;
     height:150px;
 }
+.close, .next, .prev{
+    color:#6a6a6a;
+    font-size: 20px;
+    background-color: #ccc;
+    width: 22px;
+    padding: 2px;
+    border-radius: 50%;
+}
+.close:hover, .next:hover, .prev:hover{
+    background-color: #acacac;
+}
 .close{
     position:absolute;
     top:10px;
     right:10px;
-    color:#ccc;
 }
 .next{
     position: absolute;
     right: 5px;
     top: 50%;
-    color:#ccc;
 }
 .prev{
     position: absolute;
     left: 5px;
     top: 50%;
-    color:#ccc;
 }
 input{
     border: 1px solid #ccc;
+
+    font-size: 16px;
 }
 @media (max-width: 400px) {
     #people{
