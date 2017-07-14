@@ -20,7 +20,7 @@ const getEmployeeData = (data) =>{
     });
 
     loadAllEmployees(employeeList);
-    loadModal();
+    loadModal(employeeList);
 
 };
 
@@ -31,18 +31,18 @@ const loadAllEmployees = (list) => {
     $('#people').append(personHTML);
 };
 
-const loadModal = () => {
+const loadModal = (list) => {
     $('.person').on("click", function(e){
         e.preventDefault();
         let employeeID = $(this).children('#id').val();
 
-        $.each(employeeList, function(key) {
-            let personID = employeeList[key][1]; //key is stored in second part of object
+        $.each(list, function(key) {
+            let personID = list[key][1]; //key is stored in second part of object
             $.each(personID, function(key) {
                 let personIDValue = personID[key];
                 employeeID = Number(employeeID);
                 if(employeeID === personIDValue){
-                    displayDataModal(employeeList[employeeID][0]);
+                    displayDataModal(list[employeeID][0]);
                 }
             })
         });
@@ -87,6 +87,7 @@ const search = () => {
                 //console.log(filteredList)
             }
             loadAllEmployees(filteredList);
+            loadModal(filteredList);
         })
 };
 
