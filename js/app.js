@@ -19,9 +19,16 @@ const getEmployeeData = (data) =>{
         employeeList[key].push({employeeID: key});
     });
 
-    loadAllEmployees();
+    loadAllEmployees(employeeList);
     loadModal();
 
+};
+
+const loadAllEmployees = (list) => {
+    $.each(list, function (key) {
+        displayData(list[key][0], list[key][1]);
+    });
+    $('#people').append(personHTML);
 };
 
 const loadModal = () => {
@@ -48,22 +55,17 @@ const loadModal = () => {
     });
 };
 
-const loadAllEmployees = () => {
-    $.each(employeeList, function (key) {
-        displayData(employeeList[key][0], employeeList[key][1]);
-    });
-    $('#people').append(personHTML);
-};
-const hideAll = (employeeList) => {
-    employeeList.forEach(function (element) {
+
+const hideAll = (list) => {
+    list.forEach(function (element) {
         $('.person').hide();
     })
 };
 
-/*const search = () => {
+const search = () => {
         let searchValue = $('#search').val();
 
-        /!*for(let i = 0; i < $('.person').length; i+=1){
+       /* /!*for(let i = 0; i < $('.person').length; i+=1){
          let firstName = employeeList[i][0].name.first;
          let secondName = employeeList[i][0].name.last;
          let email = employeeList[i][0].email;
@@ -74,20 +76,21 @@ const hideAll = (employeeList) => {
          }else{
 
          }
-         }*!/
+         }*!/*/
 
         employeeList.forEach(function (element) {
             let firstName = $(element).find('.person').children('.name').text();
             console.log(firstName)
-            //hideAll(employeeList);
+            hideAll(employeeList);
             if (firstName.indexOf(searchValue) > -1 && searchValue) {
                 filteredList.push($(element));
                 //console.log(filteredList)
             }
+            loadAllEmployees(filteredList);
         })
-};*/
+};
 
-//$('#search').keyup(search);
+$('#search').keyup(search);
 
 
 
