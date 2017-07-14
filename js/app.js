@@ -45,7 +45,7 @@ const search = () => {
         //must start with that letter and doesnt matter if upper or lower
         let regex = new RegExp('^' + searchValue, 'i');
 
-        if (element.name.first.match(regex) || element.name.last.match(regex) || element.email.match(regex)) {
+        if (element.name.first.match(regex) || element.name.last.match(regex) || element.login.username.match(regex)) {
             filteredList.push(element);  //push the found values into the array
             $('.no-results').hide();
         }
