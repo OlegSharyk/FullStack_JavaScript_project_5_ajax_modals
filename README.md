@@ -1,4 +1,4 @@
-##project5-employee-directory
+### FullStack JavaScript Project 5 - Employee Directory
 
 * Get and display 12 random users from The Random User Generator API
 * Create a modal window that will pop up when any part of the user’s row is clicked.
