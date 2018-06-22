@@ -64,7 +64,7 @@ $('#search').on('keyup', search);
 
 function dateOfBirth(person){
     //Reformat the date of birth
-    let dob = person.dob;
+    let dob = person.dob.date;
     let day = dob.slice(8, -9);
     let month = dob.slice(5, -12);
     let year = dob.slice(0, 4);
@@ -78,7 +78,7 @@ function displayData(list){
         let person = list[key]; // set person to the list with each key
         //key is added so we can keep track of how many there are
         personHTML += '<article class="person" data-id="' + key + '">';
-        personHTML += '<img class="avatar" src ="' + person.picture.large + '">';
+        personHTML += '<img class="avatar" src ="' + person.picture.large + '" />';
         personHTML += '<div><span class="name">' + person.name.first;
         personHTML += ' ' + person.name.last + '</span>';
         personHTML += '<p class="email">' + person.email + '</p>';
@@ -93,7 +93,7 @@ function displayDataModal(id, person, list){
     personModalHTML += '<a href="#" class="close">X</a>';
     personModalHTML += '<a href="#" class="next">></a>';
     personModalHTML += '<a href="#" class="prev"><</a>';
-    personModalHTML += '<img class="avatar" src ="' + person.picture.large + '">';
+    personModalHTML += '<img class="avatar" src ="' + person.picture.large + '" />';
     personModalHTML += '<div class="info">';
     personModalHTML += '<p><span class="name">' + person.name.first + ' ' + person.name.last + '</span></p>';
     personModalHTML += '<p>' + person.email + '</p>';
